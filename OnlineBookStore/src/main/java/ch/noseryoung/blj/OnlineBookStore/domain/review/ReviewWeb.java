@@ -1,5 +1,7 @@
-package ch.noseryoung.blj.OnlineBookStore.domain;
+package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
+import ch.noseryoung.blj.OnlineBookStore.domain.review.Review;
+import ch.noseryoung.blj.OnlineBookStore.domain.review.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +11,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/BookStore/reviews")  // parent mapping: functions like prefix -- on browser
+@RequestMapping("/bookstore/reviews")  // parent mapping: functions like prefix -- on browser
 public class ReviewWeb {
 
     @Autowired
@@ -30,13 +32,9 @@ public class ReviewWeb {
         return ResponseEntity.status(HttpStatus.CREATED).body(service.postAReview(review));
     }
 
-    @PutMapping(value = "/{reviewId}") //UPDATE
+    /*@PutMapping(value = "/{reviewId}") //PUT -- UPDATE
     public ResponseEntity<Review> updateReview(@Valid @PathVariable("reviewId") Review review){
-        try {
-            return new ResponseEntity<Review>(service.save(review), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+        return ResponseEntity.; //not correct
+    }*/
 
 }

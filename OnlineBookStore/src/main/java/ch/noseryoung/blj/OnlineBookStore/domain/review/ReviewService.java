@@ -1,5 +1,7 @@
-package ch.noseryoung.blj.OnlineBookStore.domain;
+package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
+import ch.noseryoung.blj.OnlineBookStore.domain.review.Review;
+import ch.noseryoung.blj.OnlineBookStore.domain.review.ReviewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

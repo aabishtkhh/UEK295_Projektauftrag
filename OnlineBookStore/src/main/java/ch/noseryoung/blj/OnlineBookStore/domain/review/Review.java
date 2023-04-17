@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.OnlineBookStore.domain;
+package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -18,14 +18,12 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 //or @Data
-@Table(name = "review_onlineBookStore")
+@Table(name = "onlineBookStore_review")
 public class Review {
     @Id
     private Integer Id;
     private String AutorIn;
-    @Max ( = 5)
-    @Column(name="Anzahl Sterne (Max: 5 Sterne)")
+    @Max (value = 5)
     private double stars;
-    @Column(name="Book ID") //Foreign Key
-    private int bookId;
+    private Integer bookId;
 }

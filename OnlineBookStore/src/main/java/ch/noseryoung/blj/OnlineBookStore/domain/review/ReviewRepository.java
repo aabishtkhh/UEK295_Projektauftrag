@@ -1,5 +1,6 @@
-package ch.noseryoung.blj.OnlineBookStore.domain;
+package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
+import ch.noseryoung.blj.OnlineBookStore.domain.review.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
