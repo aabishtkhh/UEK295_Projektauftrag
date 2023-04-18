@@ -1,7 +1,14 @@
 package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
-public class ReviewException {
+public class ReviewException extends Exception{
 
-    //see if the name is ok
+    public ReviewException(String message){
+        super(message);
+    }
+
+    public ReviewException(){
+        super();
+    }
+
+
 }
-
