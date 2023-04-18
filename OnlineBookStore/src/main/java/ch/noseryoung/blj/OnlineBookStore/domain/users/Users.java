@@ -1,4 +1,4 @@
-package ch.noseryoung.blj.OnlineBookStore.domain.user;
+package ch.noseryoung.blj.OnlineBookStore.domain.users;
 
 import ch.noseryoung.blj.OnlineBookStore.domain.role.Role;
 import lombok.Data;
@@ -17,15 +17,12 @@ public class Users {
     private String usrName;
     @Column(name="password")
     private String ps;
-    @ManyToOne
+    @ManyToOne //doesnt need a fetchtype due to it being alrdy being eager
     @JoinTable(
             name = "onlineBookStore_users_roles",
-            joinColumns = {
-                    @JoinColumn(name = "user_Id", referencedColumnName = "users_Id"),
-            },
-            inverseJoinColumns = {
-                    @JoinColumn(name = "id_role", referencedColumnName = "id_role")
-            }
+            joinColumns = @JoinColumn (name = "user_Id", referencedColumnName = "users_Id"),
+            inverseJoinColumns = @JoinColumn
+                    (name = "id_role", referencedColumnName = "id_role")
     )
     private Role usrRoles;
 
