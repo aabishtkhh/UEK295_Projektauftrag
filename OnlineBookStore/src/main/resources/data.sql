@@ -24,8 +24,6 @@ VALUES (1, 1),
 INSERT INTO online_book_store_roles_authorities(id_role, id_auth)
 VALUES (1, 1),
        (1, 2),
-       (1, 3),
-       (1, 4),
 
        (2, 1),
        (2, 2),

@@ -18,7 +18,7 @@ public class Users {
     private String usrName;
     @Column(name="password")
     private String ps;
-    @ManyToOne //doesnt need a fetchtype due to it being alrdy being eager
+    @ManyToOne
     @JoinTable(
             name = "onlineBookStore_users_roles",
             joinColumns = @JoinColumn (name = "user_Id", referencedColumnName = "users_Id"),
