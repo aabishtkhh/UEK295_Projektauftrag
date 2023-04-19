@@ -24,7 +24,7 @@ public class ReviewWeb {
     @GetMapping //GET -- READ
     @PreAuthorize("hasAuthority('GET')") //connecting to authority
     @Operation(summary = "Fetches all Reviews", description = "When successful it fetches all reviews and returns a JSON-Code with status code 200.")
-    private ResponseEntity<List<Review>> allReviews() {
+    public ResponseEntity<List<Review>> allReviews() {
         return ResponseEntity.ok().body(service.getAllReviews());
     }
 
@@ -60,19 +60,13 @@ public class ReviewWeb {
      * exceptions
      */
 
-    @ExceptionHandler(MethodArgumentNotValidException.class) //When method isn't valid -> stars not under 5, ..
-    public ResponseEntity<String> handlerNotValidException(MethodArgumentNotValidException manve) {
-        log.error("Invalid Review");
-        return ResponseEntity.status(400).body(manve.getFieldError().getDefaultMessage()); //only field which doesn't match with its requirement
-    }
-
     @ExceptionHandler(ReviewException.class) //When ID doesn't exist
     public ResponseEntity<String> handlerNoSuchReviewException(ReviewException re) {
         log.error("ID not found");
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(re.getMessage()); //message in service
     }
 
-    @ExceptionHandler(ReviewException.class) //Not Null
+    @ExceptionHandler(MethodArgumentNotValidException.class) //Not Null
     public ResponseEntity<String> handlerNoNullReviewException(MethodArgumentNotValidException manve) {
         log.warn("Fill everything out");
         return ResponseEntity.status(400).body(Objects.requireNonNull(manve.getFieldError()).getDefaultMessage());

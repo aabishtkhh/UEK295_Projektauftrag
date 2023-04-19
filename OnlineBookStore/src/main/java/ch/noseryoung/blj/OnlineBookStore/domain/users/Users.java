@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Table(name = "onlineBookStore_users")
 public class Users {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="users_Id")
     private Integer usrId;
     @Column(name="name")

@@ -5,10 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 
@@ -21,6 +18,7 @@ import javax.validation.constraints.Size;
 @Table(name = "onlineBookStore_review")
 public class Review {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
     private String AutorIn;
     @Max (value = 5)

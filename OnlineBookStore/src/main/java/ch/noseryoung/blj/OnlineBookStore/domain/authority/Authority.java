@@ -2,10 +2,7 @@ package ch.noseryoung.blj.OnlineBookStore.domain.authority;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Set;
 
 @Entity
@@ -13,6 +10,7 @@ import java.util.Set;
 @Table(name = "onlineBookStore_authorities")
 public class Authority {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_auth")
     private Integer authId;
     @Column(name="name")
