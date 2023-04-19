@@ -47,8 +47,14 @@ public class WebSecurityConfig {
 
                 // Disable CORS and CSRF protection
                 .and()
+
+                //an attack that forces an end-user to perform unwanted actions in a web application to which they are currently authenticated:
                 .csrf().disable()
+
+                //a security concept that allows restricting the resources implemented in web browsers
                 .cors().disable()
+
+
                 // Never creates an HTTP session
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();

@@ -2,10 +2,12 @@ package ch.noseryoung.blj.OnlineBookStore.domain.review;
 
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @Log4j2
@@ -20,7 +22,7 @@ public class ReviewService {
 
     public Review getOneReview(Integer id) throws ReviewException {
         log.info(id + " review found");
-        return repository.findById(id).orElseThrow(() -> new ReviewException("ID not found")); //exceptions
+        return repository.findById(id).orElseThrow(() -> new ReviewException("ID "+ id +" not found")); //exceptions
     }
 
     public Review postAReview(Review review) {
@@ -28,18 +30,13 @@ public class ReviewService {
         return repository.save(review);
     }
 
-    public void putAReview(Review review) {
-        log.info(review + " review has been updated");
-        repository
-                .findById(review.getId()) // returns Optional<Review>
-                .ifPresent(oldReview -> {
-                    oldReview.setId(review.getId());
-                    oldReview.setAutorIn(review.getAutorIn());
-                    oldReview.setStars(review.getStars()); //needs void
-                    oldReview.setBookId(review.getBookId());
-                    repository.save(oldReview);
-                });
-    }
+    public Review putAReview(Review review, Integer id) throws ReviewException {
+            if(repository.existsById(id)) {
+            review.setId(id);
+            return repository.save(review);
+        }
+        return repository.findById(id).orElseThrow(() -> new ReviewException("ID "+ id +" not found")); //exceptions
+        }
 
     public void deleteAReview(Integer id) {
         log.info(id + " review deleted");

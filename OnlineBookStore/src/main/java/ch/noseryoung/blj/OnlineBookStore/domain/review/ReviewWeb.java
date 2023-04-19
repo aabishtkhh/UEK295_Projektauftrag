@@ -45,8 +45,8 @@ public class ReviewWeb {
     @PutMapping(value = "/{reviewId}") //PUT -- UPDATE
     @PreAuthorize("hasAuthority('PUT')") //connecting to authority
     @Operation(summary = "Updates the wished Review", description = "When successful it updates the review with the wished values and returns the JSON-Code of the updated review with status code 200.")
-    public void updateReview(@Valid @PathVariable("reviewId") Review review){
-        service.putAReview(review);
+    public ResponseEntity<Review> updateReview(@Valid @PathVariable("reviewId")Integer id, @RequestBody Review review) throws ReviewException {
+        return ResponseEntity.status(200).body(service.putAReview(review, id));
     }
 
     @DeleteMapping(value = "/{reviewId}") //DELETE -- DELETE
