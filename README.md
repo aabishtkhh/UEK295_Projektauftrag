@@ -1,21 +1,23 @@
 # üK295_Projektauftrag
 ### Wie Sie diesen Code zu Ihrem Projekt hinzufügen können:
-To integrate this programm to your project, you will have to clone this repository.
-Done? Start [Docker](https://www.docker.com/products/docker-desktop) and log into [Postman] (https://www.postman.com/downloads/) and [localhost](http://localhost:8080) with either information:
+Um dieses Programm in Ihr Projekt zu integrieren, müssen Sie dieses Repository klonen.
 
-**Admin Role:**
-> username: `user`
-> password: `user01_uek295` 
+Nach der Integrierung starten Sie den [Docker](https://www.docker.com/products/docker-desktop). Melden Sie sich an auf [Postman](https://www.postman.com/downloads/) und [Local Host](http://localhost:8080) mit dieser  Information:
 
-**User Role:**
-> username: `user2` 
+**User Rolle:**
+> username: `user2` <br>
 > password: `user02_uek295` 
+</br>
 
-Lastly run your program on intelliJ.
+Führen Sie zuletzt Ihr Programm in [IntelliJ](https://jdk.java.net/17/) aus.
+> Laden Sie am besten die JDK Version 17 herunter.
+</br>
+</br>
 
-To Access:
-[localhost](http://localhost:8080/bookstore/reviews) 
+**Zugriff auf**:
 
-[swagger documentation](http://localhost:8080/swagger-ui/)
+[Local Host](http://localhost:8080/bookstore/reviews) 
+</br>
+[Swagger-Documentation](http://localhost:8080/swagger-ui/)
 
 
