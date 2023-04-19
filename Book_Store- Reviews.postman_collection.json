@@ -10,6 +10,21 @@
 			"item": [
 				{
 					"name": "Admin: Post / Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -30,7 +45,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"AutorIn\" : \"John Doe\",\r\n\"stars\" :  2.5, \r\n\"bookID\" : 11\r\n}",
+							"raw": "{\r\n\"autorIn\" : \"Anzalna Doe\",\r\n\"stars\" :  2.5, \r\n\"bookId\" : 11\r\n}\r\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -53,6 +68,19 @@
 				},
 				{
 					"name": "Admin: Get / Read",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -84,15 +112,14 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/bookstore/reviews/1",
+							"raw": "localhost:8080/bookstore/reviews",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"bookstore",
-								"reviews",
-								"1"
+								"reviews"
 							]
 						}
 					},
@@ -100,6 +127,19 @@
 				},
 				{
 					"name": "Admin: Put / Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Anzalna Main\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -120,7 +160,65 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\"AutorIn\" : \"Anzalna Main\",\r\n\"stars\" :  3.5, \r\n\"bookID\" : 10\r\n}",
+							"raw": "{\r\n\"autorIn\" : \"Anzalna Main\",\r\n\"stars\" :  3.5, \r\n\"bookId\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bookstore/reviews/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookstore",
+								"reviews",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin: Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "user01_uek295",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -141,41 +239,41 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "user",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "user01_uek295",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				},
 				{
-					"name": "Admin: Delete",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "user01_uek295",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "user",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/bookstore/reviews/1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bookstore",
-								"reviews",
-								"1"
-							]
-						}
-					},
-					"response": []
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -184,6 +282,19 @@
 			"item": [
 				{
 					"name": "User: Post / Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code name has string\", function () {\r",
+									"    pm.response.to.have.status(\"Created\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -201,20 +312,79 @@
 							]
 						},
 						"method": "POST",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"autorIn\" : \"test3\",\r\n\"stars\" :  4, \r\n\"bookId\" : 9\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bookstore/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookstore",
+								"reviews"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "User: Get / Read",
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "user2",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "user02_uek295",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookstore/reviews",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookstore",
+								"reviews"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "User: Put / Update",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Aroosh Main\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -232,12 +402,48 @@
 							]
 						},
 						"method": "PUT",
-						"header": []
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n\"autorIn\" : \"Aroosh Main\",\r\n\"stars\" :  5, \r\n\"bookId\" : 8\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/bookstore/reviews/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookstore",
+								"reviews",
+								"1"
+							]
+						}
 					},
 					"response": []
 				},
 				{
 					"name": "User: Delete",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"\");\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -255,9 +461,56 @@
 							]
 						},
 						"method": "DELETE",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/bookstore/reviews/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"bookstore",
+								"reviews",
+								"3"
+							]
+						}
 					},
 					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "user2",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "user02_uek295",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		}
