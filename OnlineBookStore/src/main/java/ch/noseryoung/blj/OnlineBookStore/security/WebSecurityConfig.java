@@ -1,4 +1,4 @@
-package ch.noseryoung.demo.security;
+package ch.noseryoung.blj.OnlineBookStore.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -36,7 +36,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 // No authentication required for getting product(s)
-                .antMatchers(HttpMethod.GET, "/api/v1/products/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/bookstore/reviews/**").permitAll()
 
                 .anyRequest()
                 .authenticated()

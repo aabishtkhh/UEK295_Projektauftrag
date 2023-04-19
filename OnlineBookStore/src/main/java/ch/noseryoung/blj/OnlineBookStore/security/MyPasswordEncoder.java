@@ -1,4 +1,4 @@
-package ch.noseryoung.demo.security;
+package ch.noseryoung.blj.OnlineBookStore.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

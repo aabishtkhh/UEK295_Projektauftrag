@@ -17,7 +17,7 @@ public class Role {
 
     @ManyToMany(fetch = FetchType.EAGER) //relationship was lazy(defer initialization of an object as long as it's possible), now its eager -->  data initialization occurs on the spot.
     @JoinTable(
-            name = "onlineBookStore_users_roles",
+            name = "onlineBookStore_roles_authorities",
             joinColumns = {
                     @JoinColumn(name = "id_role", referencedColumnName = "id_role"),
             },

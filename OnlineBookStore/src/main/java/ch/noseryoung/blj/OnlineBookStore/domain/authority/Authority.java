@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Entity
 @Data
-@Table(name = "onlineBookStore_authoritys")
+@Table(name = "onlineBookStore_authorities")
 public class Authority {
     @Id
     @Column(name="id_auth")
