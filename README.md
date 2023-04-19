@@ -14,9 +14,8 @@ Führen Sie zuletzt Ihr Programm in [IntelliJ](https://jdk.java.net/17/) aus.
 </br>
 
 **Zugriff auf**:
-
-[Local Host](http://localhost:8080/bookstore/reviews) 
-</br>
-[Swagger-Documentation](http://localhost:8080/swagger-ui/index.html#/review-web/updateReview)
+> [Local Host](http://localhost:8080/bookstore/reviews) 
+> 
+> [Swagger-Documentation](http://localhost:8080/swagger-ui/index.html#/review-web/updateReview)
 
 
