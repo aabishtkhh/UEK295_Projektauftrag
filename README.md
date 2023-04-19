@@ -2,7 +2,7 @@
 ### Wie Sie diesen Code zu Ihrem Projekt hinzufügen können:
 Um dieses Programm in Ihr Projekt zu integrieren, müssen Sie dieses Repository klonen.
 
-Nach der Integrierung starten Sie den [Docker](https://www.docker.com/products/docker-desktop). Melden Sie sich an auf [Postman](https://www.postman.com/downloads/) und [Local Host](http://localhost:8080) mit dieser  Information:
+Nach der Integrierung starten Sie den [Docker](https://www.docker.com/products/docker-desktop). Melden Sie sich an auf [Postman](https://www.postman.com/downloads/) und [Local Host](http://localhost:8080/) mit dieser  Information:
 
 **User Rolle:**
 > username: `user2` <br>
