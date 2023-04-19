@@ -12,12 +12,11 @@ Nach der Integrierung starten Sie den [Docker](https://www.docker.com/products/d
 Führen Sie zuletzt Ihr Programm in [IntelliJ](https://jdk.java.net/17/) aus.
 > Laden Sie am besten die JDK Version 17 herunter.
 </br>
-</br>
 
 **Zugriff auf**:
 
 [Local Host](http://localhost:8080/bookstore/reviews) 
 </br>
-[Swagger-Documentation](http://localhost:8080/swagger-ui/)
+[Swagger-Documentation](http://localhost:8080/swagger-ui/index.html#/review-web/updateReview)
 
 
